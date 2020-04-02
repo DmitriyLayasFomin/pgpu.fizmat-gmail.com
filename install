@@ -1,0 +1,16 @@
+#!/bin/bash
+pm2 stop gosspravki
+rm -f -r /home/gosspravki
+git clone /home/git/gosspravki.git /home/gosspravki
+cd /home/gosspravki/react_egrn
+npm install
+cd /home/gosspravki/egrn_nodejs
+npm install
+mkdir /home/gosspravki/egrn_nodejs/public
+mkdir /home/downloadedFiles
+cd /home/gosspravki/react_egrn
+npm run build
+mv /home/gosspravki/react_egrn/build/ /home/gosspravki/egrn_nodejs/public/build
+chmod ugo+x /home/gosspravki/rebuild
+chmod ugo+x /home/gosspravki/update
+pm2 start gosspravki
