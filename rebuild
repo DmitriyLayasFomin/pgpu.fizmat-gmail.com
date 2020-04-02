@@ -1,0 +1,6 @@
+#!/bin/bash
+pm2 stop gosspravki
+rm -f -r /home/gosspravki/react_egrn/build
+rm -f -r /home/gosspravki/react_egrn/egrn_nodejs
+npm run build /home/gosspravki/react_egrn
+pm2 start gosspravki
